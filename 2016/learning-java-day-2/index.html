@@ -1,0 +1,484 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Noto Serif:300,300italic,400,400italic,700,700italic|Cousine:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.6" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,2016 H2 Goals," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.6" />
+
+
+
+
+
+
+<meta name="description" content="Basic Knowledge about Objects, including Constructor, Instance Variables and Methods, Class Variables and Methods.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learning Java Day 2 - Working With Objects I">
+<meta property="og:url" content="http://dpw.iissnan.com/2016/learning-java-day-2/index.html">
+<meta property="og:site_name" content="Vi's Working Notes @ RC">
+<meta property="og:description" content="Basic Knowledge about Objects, including Constructor, Instance Variables and Methods, Class Variables and Methods.">
+<meta property="og:updated_time" content="2016-08-31T05:00:31.846Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Learning Java Day 2 - Working With Objects I">
+<meta name="twitter:description" content="Basic Knowledge about Objects, including Constructor, Instance Variables and Methods, Class Variables and Methods.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Learning Java Day 2 - Working With Objects I | Vi's Working Notes @ RC </title>
+</head>
+
+<body lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Learning Java Day 2 - Working With Objects I
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-15T22:03:21+08:00" content="2016-08-15">
+              2016-08-15
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>A class is a template used to create one or more objects. These objects, which also are called <strong><em>instances</em></strong>, are self-contained elements of a program with related features and data. To create a new object, you use the <code>new</code> operator with the name of the class that should be used as a template. The name of the class is followed by parentheses, as in these 3 examples:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String name = <span class="keyword">new</span> String(<span class="string">"Hello Java"</span>);</div><div class="line">URL address = <span class="keyword">new</span> URL(<span class="string">"http://example.com"</span>);</div></pre></td></tr></table></figure>
+<p>The number and type of arguments to include inside the parentheses are defined by the class itself using a special method called a <strong><em>constructor</em></strong>, as in the following example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.example;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.StringTokenizer;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TokenConsumer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arguments)</span> </span>&#123;</div><div class="line">        StringTokenizer str1, str2;</div><div class="line"></div><div class="line">        str1 = <span class="keyword">new</span> StringTokenizer(<span class="string">"GOOG 530 -9.98"</span>);</div><div class="line">        str2 = <span class="keyword">new</span> StringTokenizer(<span class="string">"RNG:200:2.2"</span>, <span class="string">":"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Two different <code>StringTokenizer</code> objects are created using different arguments to the constructor. The first object is created using <code>new StringTokenizer()</code> with one argument, this creates a <code>StringTokenizer</code> object that uses the default delimiters, which are blank spaces, tabs, newlines, carriage returns, or formfeed characters.<br>The second <code>StringTokenizer</code> object in the above example has two arguments when it is constructed. The second argument indicates that the <code>:</code> character should be used as the delimiter between tokens.</p>
+<h2 id="How-objects-are-constructed"><a href="#How-objects-are-constructed" class="headerlink" title="How objects are constructed"></a>How objects are constructed</h2><p>Several things happen when you use the <code>new</code> operator. The new instance of the given class is created, memory is allocated for it, and a special method defined in the given class is called. This method is called a constructor.</p>
+<p>A <strong><em>constructor</em></strong> is a way to create a new instance of a class. A constructor initializes the new object and its variables, creates any other objects that one object needs, and performs any additional operations the object requires to initialize itself. A class can have several different constructors, each with a different number or type of argument. When you use <code>new</code>, you can specify different arguments in the argument list, and the correct constructor for those arguments is called.</p>
+<p>No two constructors in a class can have the same number and type of arguments, because this is the only way constructors are differentiated from each other.<br>If a class defines no constructors, a constructor with no argument is called by default when an object of the class is created. The only thing this constructor does is call the same constructor in its superclass.</p>
+<h2 id="Class-and-Instance-Variables-Methods"><a href="#Class-and-Instance-Variables-Methods" class="headerlink" title="Class and Instance Variables/Methods"></a>Class and Instance Variables/Methods</h2><h3 id="Instance-variables"><a href="#Instance-variables" class="headerlink" title="Instance variables"></a>Instance variables</h3><p>To get the value of an instance variable, you can use <strong><em>dot notation</em></strong>. Dot notation is how you refer to an object’s instance variables and methods.</p>
+<p>Assigning a value to an instance variable with dot notation employs the <code>=</code> operator just like variables holding primitive types:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">customer.name = <span class="string">"Vi"</span>;</div></pre></td></tr></table></figure>
+<h3 id="Class-variables"><a href="#Class-variables" class="headerlink" title="Class variables"></a>Class variables</h3><p>Class variables are variables defined and stored in the class itself. Their values apply to the class and all its instances. With instance variables, each new instance of the class gets a new copy of the instance variables. With class variables, only one copy of that variable exists when the class is loaded. Changing the value of that variable changes if for all instances of that class.</p>
+<p>You define class variables by including the <code>static</code> keyword before the variable itself. For example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FamilyMember</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> String surname = <span class="string">"Mendoza"</span>;</div><div class="line">    String name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>To access class variables, you use the same dot notation as with instance variables. To retrieve or change the value of the class variable, you can use either the instance or the name of the class on the left site of the dot operator, as in the following example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">FamilyMember dad = <span class="keyword">new</span> FamilyMember();</div><div class="line">System.out.println(dad.surname);</div><div class="line">System.out.println(FamilyMember.surname);</div></pre></td></tr></table></figure>
+<h3 id="Calling-Methods"><a href="#Calling-Methods" class="headerlink" title="Calling Methods"></a>Calling Methods</h3><p>Methods of an object are called to make it do something. Calling a method in an object also makes use of <strong><em>dot notation</em></strong>.</p>
+<h3 id="Class-Methods"><a href="#Class-Methods" class="headerlink" title="Class Methods"></a>Class Methods</h3><p>Class methods, also called static methods, apply to the class as a whole and not to its instances just like variables. Class methods commonly are used for general utility methods that might not operate directly on an object.</p>
+<p>Dot notation is used to call a class method. As with class variables, you can use either an instance of the class or the class itself on the left side of the dot.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/2016-H2-Goals/" rel="tag"># 2016 H2 Goals</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/learning-java-day-1/" rel="next" title="Learning Java Day 1 - The ABCs of Java">
+                <i class="fa fa-chevron-left"></i> Learning Java Day 1 - The ABCs of Java
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/general-knowledge-web_xml/" rel="prev" title="General Knowledge - web.xml">
+                General Knowledge - web.xml <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner affix">
+      <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <p class="site-overview">文档目录</p>
+        <div class="post-toc">
+          <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-objects-are-constructed"><span class="nav-text">How objects are constructed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-and-Instance-Variables-Methods"><span class="nav-text">Class and Instance Variables/Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Instance-variables"><span class="nav-text">Instance variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-variables"><span class="nav-text">Class variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Calling-Methods"><span class="nav-text">Calling Methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-Methods"><span class="nav-text">Class Methods</span></a></li></ol></li></ol>
+        </div>
+      </section>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; <span itemprop="copyrightYear">2016</span>
+  &nbsp; - &nbsp;
+  <span class="author" itemprop="copyrightHolder">Vi</span>
+  <span class="with-love">
+    <i class="fa fa-truck fa-fw"></i>
+    <i class="fa fa-github-alt fa-fw"></i>
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.6"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.6"></script>
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.6"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.6"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.6"></script>
+
+
+
+  <script>
+    $(document).ready(function () {
+      var tocSelector = '.post-toc';
+      var $tocElement = $(tocSelector);
+      var activeCurrentSelector = '.active-current';
+
+      $tocElement
+        .on('activate.bs.scrollspy', function () {
+          var $currentActiveElement = $(tocSelector + ' .active').last();
+
+          removeCurrentActiveClass();
+          $currentActiveElement.addClass('active-current');
+        })
+        .on('clear.bs.scrollspy', removeCurrentActiveClass);
+
+      $('body').scrollspy({ target: tocSelector });
+
+      function removeCurrentActiveClass () {
+        $(tocSelector + ' ' + activeCurrentSelector)
+          .removeClass(activeCurrentSelector.substring(1));
+      }
+    });
+  </script>
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+
+</body>
+</html>
