@@ -70,7 +70,26 @@ SEMINAR['2016'] = {
       {
         date: '2016-09-02',
         value: 1,
-        topic: 'Docker',
+        topic: 'Introduction to Docker',
+        presenter: 'Bribin'
+      },
+      {
+        date: '2016-09-09',
+        value: 1,
+        topic: 'Docker Practices',
+        presenter: 'Bribin'
+      },
+      {
+        date: '2016-09-16',
+        value: 0,
+        topic: null,
+        presenter: null,
+        comment: 'Mid-Autumn Holiday'
+      },
+      {
+        date: '2016-09-23',
+        value: 1,
+        topic: 'Getting Started with Git',
         presenter: 'Bribin'
       }
     ]

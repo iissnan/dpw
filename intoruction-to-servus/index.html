@@ -1,0 +1,371 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Noto Serif:300,300italic,400,400italic,700,700italic|Cousine:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.6" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="DPW Working Notes" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.6" />
+
+
+
+
+
+
+<meta name="description" content="轮子制造的动机随着项目的开发，项目的文件也越来越多，DPW现在使用的 Grunt 开发方案反应越来越变得迟钝。DPW  的前端构建包含两个阶段，第一个阶段是将两个站点共享的内容与站点本身的内容做一次合并到 Stage 目录；第二阶段在 Stage 目录将进行构建并生成文件到服务器目录下。两个阶段皆需要 Watcher: 第一阶段的源码变动将会触发一次复制到 Stage，而第二阶段变动将会再次执行构">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Intoruction to Servus">
+<meta property="og:url" content="http://dpw.iissnan.com/intoruction-to-servus/index.html">
+<meta property="og:site_name" content="Vi's Working Notes @ RC">
+<meta property="og:description" content="轮子制造的动机随着项目的开发，项目的文件也越来越多，DPW现在使用的 Grunt 开发方案反应越来越变得迟钝。DPW  的前端构建包含两个阶段，第一个阶段是将两个站点共享的内容与站点本身的内容做一次合并到 Stage 目录；第二阶段在 Stage 目录将进行构建并生成文件到服务器目录下。两个阶段皆需要 Watcher: 第一阶段的源码变动将会触发一次复制到 Stage，而第二阶段变动将会再次执行构">
+<meta property="og:updated_time" content="2016-09-27T09:41:50.076Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Intoruction to Servus">
+<meta name="twitter:description" content="轮子制造的动机随着项目的开发，项目的文件也越来越多，DPW现在使用的 Grunt 开发方案反应越来越变得迟钝。DPW  的前端构建包含两个阶段，第一个阶段是将两个站点共享的内容与站点本身的内容做一次合并到 Stage 目录；第二阶段在 Stage 目录将进行构建并生成文件到服务器目录下。两个阶段皆需要 Watcher: 第一阶段的源码变动将会触发一次复制到 Stage，而第二阶段变动将会再次执行构">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title>
+  
+
+  
+    Intoruction to Servus | Vi's Working Notes @ RC
+  
+</title>
+</head>
+
+<body lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right  ">
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <h1 class="brand" style="opacity: 1;">Intoruction to Servus</h1>
+
+  <div id="posts" class="posts-expand">
+    
+    
+      <h2 id="轮子制造的动机"><a href="#轮子制造的动机" class="headerlink" title="轮子制造的动机"></a>轮子制造的动机</h2><p>随着项目的开发，项目的文件也越来越多，DPW现在使用的 Grunt 开发方案反应越来越变得迟钝。DPW  的前端构建包含两个阶段，第一个阶段是将两个站点共享的内容与站点本身的内容做一次合并到 Stage 目录；第二阶段在 Stage 目录将进行构建并生成文件到服务器目录下。两个阶段皆需要 Watcher: 第一阶段的源码变动将会触发一次复制到 Stage，而第二阶段变动将会再次执行构建。</p>
+<p>这个构建过程的主要问题体现在两个方面：</p>
+<ul>
+<li>第一阶段的复制合并需要的时间也越来越长</li>
+<li>需要 Watch 的文件越来越多，源码文件的一次改动将会致使第二阶段的 Watcher 重新扫描上千个的文件</li>
+</ul>
+<h2 id="方案调研"><a href="#方案调研" class="headerlink" title="方案调研"></a>方案调研</h2><p>Gulp 使用虚拟文件（Vinyl Objects）结合 Stream 来减少磁盘的 IO，这在一定程度上可以提升构建的速度，但并没有带来太大的收益，因此使用 Gulp 替代 Grunt 并没有真正的解决问题。</p>
+<p>在此期间，曾考虑的使用 Webpack 的 Dev Server 来做 Proxy，通过 Middlewares 处理各个阶段特定的任务。但新版本将使用 Webpack 来做构建，这也就意味着可能需要两个 Webpack  Dev Server；另一方面，基于 Grunt 的使用经验，过度依赖一个工具将致使迁移成本很高。比如说，如果现有的 Grunt 任务中，文件的处理采用 NodeJS 来处理而非 Grunt 提供的 API 去处理，那么迁移到 Gulp 的过程将会顺利很多。</p>
+<p>综合上述考虑，新的开发工具需要具备以下特性：</p>
+<ul>
+<li>工具无关性，将所有文件处理交有 NodeJS 处理。工具将仅根据需要调用这些处理过程。</li>
+<li>去除复制到 Stage 的步骤</li>
+<li>去除所有的 Watcher</li>
+<li>易于扩展，例如支持 Wepack</li>
+</ul>
+<h2 id="Servus-登场"><a href="#Servus-登场" class="headerlink" title="Servus 登场"></a>Servus 登场</h2><p>于是就有了 Servus。Servus 是一个独立的 Application Server，serve 静态文件和反向代理后端请求，非常类似于 Nginx 静态文件服务器。</p>
+<p>Servus 由一个基于 Hapi 编写的 Server 和 Server 启动之前的预处理器组成。Server 通过路由配置，指定特定的请求如何被处理。例如，请求静态脚本文件 <code>asserts/js/login.js</code> 时，此路由对应的处理器会在项目下查找此文件。这种映射请求到磁盘文件的方式，解决了“去除复制到Stage 的复制操作”；同时每一次请求都是直接读取磁盘文件，Watcher 也不再需要。</p>
+<p>查找匹配文件的过程速度非常快（通常在 20ms 以下），因此 Servus 带来巨大的速度上的提升。之前 Grunt 需要几分钟的启动过程，Servus 仅需五秒以内（Sass 的预处理花费了一秒多）即可完成；去除 Watcher 后再也不用反复确认文件是否被正确更新，只要保证文件更新有被保存就可以了。</p>
+<p>Proxy 部分（主要是 <code>/api/*</code>）使用了穿透模式，也就是客户端的请求和服务器的响应都原封不动直接传递。</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2>
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner affix">
+      <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <p class="site-overview">文档目录</p>
+        <div class="post-toc">
+          <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#轮子制造的动机"><span class="nav-text">轮子制造的动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案调研"><span class="nav-text">方案调研</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servus-登场"><span class="nav-text">Servus 登场</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用"><span class="nav-text">如何使用</span></a></li></ol>
+        </div>
+      </section>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; <span itemprop="copyrightYear">2016</span>
+  &nbsp; - &nbsp;
+  <span class="author" itemprop="copyrightHolder">Vi</span>
+  <span class="with-love">
+    <i class="fa fa-truck fa-fw"></i>
+    <i class="fa fa-github-alt fa-fw"></i>
+  </span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.6"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.6"></script>
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.6"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.6"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.6"></script>
+
+
+
+  <script>
+    $(document).ready(function () {
+      var tocSelector = '.post-toc';
+      var $tocElement = $(tocSelector);
+      var activeCurrentSelector = '.active-current';
+
+      $tocElement
+        .on('activate.bs.scrollspy', function () {
+          var $currentActiveElement = $(tocSelector + ' .active').last();
+
+          removeCurrentActiveClass();
+          $currentActiveElement.addClass('active-current');
+        })
+        .on('clear.bs.scrollspy', removeCurrentActiveClass);
+
+      $('body').scrollspy({ target: tocSelector });
+
+      function removeCurrentActiveClass () {
+        $(tocSelector + ' ' + activeCurrentSelector)
+          .removeClass(activeCurrentSelector.substring(1));
+      }
+    });
+  </script>
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+
+</body>
+</html>

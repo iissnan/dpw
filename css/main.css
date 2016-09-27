@@ -1595,7 +1595,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff7c44;
+  background: #12fbbe;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2642,9 +2642,12 @@ code {
 .site-pages ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  padding: 0;
 }
 .site-pages li {
+  box-sizing: border-box;
+  margin-right: 3%;
   width: 30%;
   text-align: center;
   font-size: 13px;
