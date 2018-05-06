@@ -1,3 +1,24 @@
+language: node_js
+node_js: stable
+
+# Travis-CI Caching
+cache: yarn
+
+branches:
+  only:
+    - master
+
+# S: Build Lifecycle
+install:
+  - yarn
+
+script:
+  - yarn build
+
+# E: Build LifeCycle
+
+
+# GitHub Pages Deployment
 deploy:
   provider: pages
   skip-cleanup: true
