@@ -2,6 +2,7 @@
 title: Introduction to Servus
 date: 2016-09-27 17:36:34
 thumbnail: servus.jpg
+sidebar: auto
 ---
 
 <h2 id="motivation">动机</h2>

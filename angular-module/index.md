@@ -2,6 +2,7 @@
 title: 从 Angular Module 聊起
 date: 2016-08-25 15:06:33
 thumbnail: module-definition.png
+sidebar: auto
 ---
 
 ## AngularJS Module 设计思路
@@ -25,7 +26,7 @@ var main = angular.module('issuesManager', [
 
 Module 包含特定内容的 Controllers，Directives，Services 和 Filters 等等。AngularJS 应用 Modules 的一种组织方式是将 Modules 分成三个层次：
 
-<img class="full-image" src="/uploads/angular-modules-recommanded-setup.png"
+<img class="full-image" src="~@uploads/angular-modules-recommanded-setup.png"
   style="border: 1px solid #222;" alt="应用的 Modules 层次">
 
 - **Common Modules**

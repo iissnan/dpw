@@ -2,6 +2,7 @@
 title: DPW UI Unit Testing
 date: 2016-08-08 15:06:33
 thumbnail: tdd_flow.gif
+sidebar: auto
 ---
 
 ## 前言
@@ -154,7 +155,7 @@ setNameSpy.restore()
 
 当依赖安装完成之后，即可运行 `npm run developer` 来执行测试。在 Windows 平台上也可以使用 `desktop.bat` 批处理文件来启动测试。除此之外，也可以集合 WebStorm IDE 来启动测试（推荐的方式），WebStorm 测试的配置请看下图:
 
-<img alt="WebStorm Karma Configuration" class="full-image" src="/uploads/webstorm-karma-configuration.png" >
+<img alt="WebStorm Karma Configuration" class="full-image" src="~@uploads/webstorm-karma-configuration.png" >
 
 ### 测试文件组织
 

@@ -1,13 +1,17 @@
+const path = require('path');
+
 module.exports = {
   title: 'Recollection',
   description: 'Working Notes @RC',
   head: [
-    ['link', { rel: 'shortcut icon', type: 'image/x-icon', href: `favicon.ico` }]
+    ['link', { rel: 'shortcut icon', type: 'image/x-icon', href: `favicon.ico` }],
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans' }]
   ],
   configureWebpack: {
     resolve: {
       alias: {
-        '@static': './static'
+        '@static': path.resolve(__dirname, '../static'),
+        '@uploads': path.resolve(__dirname, '../uploads')
       }
     }
   },
